@@ -86,6 +86,7 @@ def test_step(model: MLP, batch):
 total_steps = 10_000
 for step, batch in enumerate(dataset(32)):
   train_step(model, optimizer, batch)
+  print(nnx.graph.GRAPH_CONTEXT)
 
   if step % 1000 == 0:
     logs = test_step(model, (X, Y))
